@@ -112,9 +112,55 @@
 #include <string>
 #include <cstdlib> // pour exit et rand
 
-void reset_board() {}        // qui ré-initialise le board
-void generate_apple() {}     // qui génère une pomme
-void add_snake_to_board() {} // qui met le serpent sur le board
+
+int rows{5};
+int columns{7};
+
+std::vector<char> tab(rows * columns, '.');
+
+    // pour le snake, chaque anneau du snake est une paire d'entiers (ligne, colonne)
+
+    // donc, par exemple vous utilisez un std::vector<std::pair<int, int>> snake
+
+std::vector<std::pair<int, int>> snake;
+
+
+
+void reset_board() // qui ré-initialise le board
+{
+for (int i = 0; i < 5; i++)
+    {
+        for (int j = 0; j < 7; j++)
+        {
+            std::cout << ".";
+        }
+        std::cout << std::endl;
+    }
+}
+
+
+void generate_apple() 
+{
+    simple_random(rows*columns)
+
+
+}     
+
+
+
+// qui génère une pomme
+void add_snake_to_board()  // qui met le serpent sur le board
+{
+    int l_snake = snake[0].first;
+    
+}
+
+
+
+
+
+
+
 void add_apple_to_board() {} // qui met la pomme sur le board
 
 void draw_board()
@@ -195,7 +241,16 @@ int main(int argc, char **argv)
     // exemple où on génère un nombre aléatoire entre 0 et 35
     // (par exemple cela vous donne une case sur un board de 5 lignes 7 colonnes pour y placer une pomme
     //  si il n'y a pas de bout de serpent à cet endroit...)
-    std::cout << simple_random(35) << std::endl;
+    
+
+    // on crée un tableau de 5 x 7 cases initialisé à '.'
+    // voir la documentation de std::vector pour plus de détails https://en.cppreference.com/w/cpp/container/vector
+    // ou alors chercher sur internet des exemples d'utilisation de std::vector (pas en français)
+
+
+    //std::cout << simple_random(35) << std::endl;
+    reset_board()
+
 
     // Il manque tous les objets (le board, le serpent, la pomme).
     // Dans un premier temps, vous pouvez utiliser des variables globales pour stocker ces objets
