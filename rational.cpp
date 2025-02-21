@@ -1,4 +1,5 @@
 #include <iostream>
+#include <unordered_map>
 class rational
 {
 private:
@@ -26,6 +27,14 @@ rational operator+(const rational &r1, const rational &r2) // si on le définit 
     return rational(r1.num * r2.denom + r2.num * r1.denom, r1.denom * r2.denom);
 }
 
+void print(std::unordered_map<std::string, int> dic)
+        {
+            for (const auto& pair : dic)
+            {
+                std::cout<<pair.first<< " : "<< pair.second << std::endl;
+            }
+        }
+
 int main()
 {
     rational r1;       // 0/1
@@ -34,5 +43,8 @@ int main()
     r1.print();
     r2.print();
     r3.print();
+    std::unordered_map<std::string, int> visite;
+    visite["Paris"] = 4;
+    print(visite);
     return 0;
 }
